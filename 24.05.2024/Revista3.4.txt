@@ -1,0 +1,30 @@
+class Revista extends Livro {
+    private int edicao;
+
+    public Revista(String titulo, String autor, int anoPublicacao, int edicao) {
+        super(titulo, autor, anoPublicacao);
+        this.setEdicao(edicao);
+    }
+
+    public int getEdicao() {
+        return edicao;
+    }
+
+    public void setEdicao(int edicao) {
+        if (edicao < 0) {
+            throw new IllegalArgumentException("A edição não pode ser negativa.");
+        }
+        this.edicao = edicao;
+    }
+
+
+    public void exibirDetalhes() {
+        super.exibirDetalhes();
+        System.out.println("Edição: " + edicao);
+    }
+
+
+    public String toString() {
+        return super.toString() + " - Edição: " + edicao;
+    }
+}

@@ -1,0 +1,63 @@
+Nos exercícios abaixo, construa com funções e todos os recursos aprendidos até aqui:
+
+1. Re-construa a calculadora utilizando funções.
+
+2. Conversão de Temperatura: Escreva funções para converter temperatura de Celsius para Fahrenheit e de Fahrenheit para Celsius. Chame as funções no método main e printe os resultados.
+
+import java.util.Scanner;
+
+public class temperatura {
+    public static void main(String[] args) {
+        final double Fator = 5.0 / 9.0;
+        final double Ajuste = 32;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite a temperatura em fahrenheit:");
+
+        double fahrenheit = sc.nextDouble();
+        double celsius = (fahrenheit - Ajuste) * Fator;
+
+        System.out.println("A temperatura é " + celsius + "ºC");
+
+        double celsius2 = 0;
+        final double Fator2 = celsius2 * 9.5;
+        final double Ajuste2 = 32;
+
+        Scanner sc2 = new Scanner(System.in);
+        System.out.println("Digite a temperatura em Celsius:");
+
+         celsius2 = sc2.nextDouble();
+        double fahrenheit2 = (celsius2 + Ajuste2) * Fator2;
+
+        System.out.println("A temperatura é " + fahrenheit + "ºF");
+    }
+}
+
+3.Verificação de Número Primo: Escreva uma função que receba um número como entrada e retorne verdadeiro se o número for primo e falso caso contrário. No método principal, solicite ao usuário um número e exiba se ele é primo ou não.
+
+import java.util.Scanner;
+
+public class numeroPrimo {
+
+    public static void main(String[] args) {
+        int numeroPrimo;
+        int numeroDivisores = 0;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o número");
+        numeroPrimo = sc.nextInt();
+
+        for (int i = 1; i <= numeroPrimo; i++) {
+            if (numeroPrimo % i == 0) {
+                numeroDivisores++;
+            }
+        }
+
+        if (numeroDivisores == 2) {
+            System.out.println("O número é primo");
+        } else {
+            System.out.println("O número não é primo");
+        }
+    }
+}
+

@@ -1,0 +1,141 @@
+
+1- Escreva um programa que solicite um número ao
+//usuário e determine se ele é par ou ímpar.
+//Use uma estrutura condicional if-else para realizar a
+//verificação.
+
+import java.util.Scanner;
+
+
+public class ParOuImpar {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite um número qualquer");
+      int numero = scanner.nextInt();
+
+      if (numero % 2 >0) {
+          System.out.println("O número" + numero + "é impar.");
+      }else{
+          System.out.println("O número" + numero + "é par.");
+      }
+
+scanner.close();
+        }
+    }
+
+2-//Implemente um programa  que solicite o salário
+//base de um funcionário e o número de anos de serviço.
+//Calcule o bônus salarial de acordo com as seguintes regras:
+//o Se o funcionário tem mais de 5 anos de serviço,
+//o bônus é de 5% do salário base. o Caso contrário,
+//o bônus é de 2% do salário base.
+
+import java.util.Scanner;
+
+public class Bonussalarial {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite o salário bruto do funcionário");
+        double salarioBruto = scanner.nextDouble();
+
+        System.out.println("Digite os anos de casa do empregado na empresa:");
+        int anosDecasa = scanner.nextInt();
+
+        double bonus;
+
+        if (anosDecasa>5) {
+            bonus = salarioBruto * 0.05;
+        } else {
+            bonus = salarioBruto * 0.02;
+            System.out.println("O bônus salarial do colaborador e:R$ " + bonus);
+
+
+        }
+    }
+}
+
+3- Desenvolva um programa que solicite uma nota musical (A, B, C, D, E ou F) ao usuário e imprima sua tradução para as palavras "Dó", "Ré", "Mi",
+"Fá", "Sol" ou "Lá", respectivamente.
+
+
+import java.util.Scanner;
+
+public class notaMusical {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite uma nota musical (A, B, C, D, E, F, G):");
+        String nota = scanner.next().toUpperCase();
+
+        // Utilizando if/else para traduzir a nota
+        if (nota.equals("A")) {
+            System.out.println("Lá");
+        } else if (nota.equals("B")) {
+            System.out.println("Si");
+        } else if (nota.equals("C")) {
+            System.out.println("Dó");
+        } else if (nota.equals("D")) {
+            System.out.println("Ré");
+        } else if (nota.equals("E")) {
+            System.out.println("Mi");
+        } else if (nota.equals("F")) {
+            System.out.println("Fá");
+        } else if (nota.equals("G")) {
+            System.out.println("Sol");
+        } else {
+            System.out.println("Nota inválida!");
+        }
+
+        scanner.close();
+    }
+}
+
+4-//Escreva um programa que imprima um calendário anual para um determinado ano fornecido pelo usuário.
+//O programa deve exibir os meses e os dias da
+//semana de acordo com o ano e o dia da semana em que o ano começa.
+
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class calendarioAnual {
+
+
+public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Digite o ano:");
+    int ano = scanner.nextInt();
+
+    for (int mes=1;mes<=12;mes++){
+        imprimirCalendarioDoMes(ano, mes);
+    }
+}
+
+    public static void imprimirCalendarioDoMes(int ano, int mes) {
+        LocalDate primeiroDiaDoMes = LocalDate.of(ano, mes, 1);
+        int ultimoDiaDoMes = primeiroDiaDoMes.lengthOfMonth();
+
+        System.out.println("\n" + primeiroDiaDoMes.getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")) + " " + ano);
+        System.out.println("Dom Seg Ter Qua Qui Sex Sáb");
+
+        int diaDaSemanaDoPrimeiroDia = primeiroDiaDoMes.getDayOfWeek().getValue() % 7;
+        for (int i = 0; i < diaDaSemanaDoPrimeiroDia; i++) {
+            System.out.print("    ");
+        }
+
+        for (int dia = 1; dia <= ultimoDiaDoMes; dia++) {
+            System.out.printf("%3d ", dia);
+            if ((dia + diaDaSemanaDoPrimeiroDia) % 7 == 0) {
+                System.out.println();
+            }
+        }
+        System.out.println();
+    }
+}
+
+

@@ -1,0 +1,30 @@
+public class Carro {
+
+
+    private String carro;
+    private int ano;
+    private String marca;
+
+
+    public Carro(String carro, String marca, int ano) {
+        this.carro = carro;
+        this.ano = ano;
+        this.marca = marca;
+    }
+
+
+    public void detalhes() {
+        System.out.println("A montadora é: " + marca);
+        System.out.println("O ano é: " + ano);
+        System.out.println("O tipo do carro é: " + carro);
+    }
+
+
+    public static void main(String[] args) {
+
+        Carro carro1 = new Carro("Civic", "Honda", 2023);
+
+      
+        carro1.detalhes();
+    }
+}

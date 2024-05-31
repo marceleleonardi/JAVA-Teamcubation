@@ -1,0 +1,28 @@
+
+public class Main {
+    public static void main(String[] args) {
+        Biblioteca biblioteca = new Biblioteca();
+
+        Livro livro1 = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", 1954);
+        Livro livro2 = new Livro("1984", "George Orwell", 1949);
+        Livro livro3 = new Livro("Biblia", "Pedro", 1000);
+        Revista revista1 = new Revista("National Geographic", "Vários autores", 2024, 5);
+
+        biblioteca.adicionarLivro(livro1);
+        biblioteca.adicionarLivro(livro2);
+        biblioteca.adicionarLivro(livro3);
+        biblioteca.adicionarLivro(revista1);
+
+
+        biblioteca.listarLivros();
+
+        Livro livroBuscado = biblioteca.buscarLivroPorTitulo("National Geographic");
+        if (livroBuscado != null) {
+            System.out.println("Item encontrado:");
+            livroBuscado.exibirDetalhes();
+        } else {
+            System.out.println("Item não encontrado.");
+
+        }
+    }
+}

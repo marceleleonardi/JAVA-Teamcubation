@@ -1,0 +1,55 @@
+class Livro {
+    private String titulo;
+    private String autor;
+    private int anoPublicacao;
+
+    public Livro(String titulo, String autor, int anoPublicacao) {
+        this.setTitulo(titulo);
+        this.setAutor(autor);
+        this.setAnoPublicacao(anoPublicacao);
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public int getAnoPublicacao() {
+        return anoPublicacao;
+    }
+
+    public void setTitulo(String titulo) {
+        if (titulo == null || titulo.isEmpty()) {
+            throw new IllegalArgumentException("O título não pode ser vazio.");
+        }
+        this.titulo = titulo;
+    }
+
+    public void setAutor(String autor) {
+        if (autor == null || autor.isEmpty()) {
+            throw new IllegalArgumentException("O autor não pode ser vazio.");
+        }
+        this.autor = autor;
+    }
+
+    public void setAnoPublicacao(int anoPublicacao) {
+        if (anoPublicacao < 0) {
+            throw new IllegalArgumentException("O ano de publicação não pode ser negativo.");
+        }
+        this.anoPublicacao = anoPublicacao;
+    }
+
+    public void exibirDetalhes() {
+        System.out.println("Título: " + titulo);
+        System.out.println("Autor: " + autor);
+        System.out.println("Ano de Publicação: " + anoPublicacao);
+    }
+
+    @Override
+    public String toString() {
+        return titulo + " (" + anoPublicacao + ") - " + autor;
+    }
+}
