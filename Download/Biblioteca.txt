@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+
+class Biblioteca {
+    private ArrayList<Livro> itens;
+
+    public Biblioteca() {
+        this.itens = new ArrayList<>();
+    }
+
+    public void adicionarLivro(Livro item) {
+        itens.add(item);
+    }
+
+    public void listarLivros() {
+        if (itens.isEmpty()) {
+            System.out.println("A biblioteca está vazia.");
+        } else {
+            for (Livro item : itens) {
+                item.exibirDetalhes();
+                System.out.println();
+            }
+        }
+    }
+
+    public Livro buscarLivroPorTitulo(String titulo) {
+        for (Livro item : itens) {
+            if (item.getTitulo().equalsIgnoreCase(titulo)) {
+                return item;
+            }
+        }
+        return null;
+    }
+}
